@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Sitecore Commerce Plugin Inventory</Description>
+    <VersionPrefix>4.0</VersionPrefix>
+    <Authors>Andrew Sutherland</Authors>
+    <TargetFramework>net471</TargetFramework>
+    <PackageTags>$(PackageTags);Commerce;Plugin;Inventory</PackageTags>
+    <PackageIconUrl>http://www.sitecore.net/favicon.ico</PackageIconUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Pipelines\Blocks\AssociateSellableItemToInventorySetBlock.cs" />
+    <Compile Remove="Pipelines\Blocks\DoActionAssociateSellableItemBlock.cs" />
+    <Compile Remove="Pipelines\Blocks\DoActionEditInventoryInformationBlock.cs" />
+    <Compile Remove="Pipelines\Blocks\GetInventoryInformationViewBlock.cs" />
+    <Compile Remove="Pipelines\Blocks\ValidateEntityVersionBlock.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.Commerce.Core" Version="4.0.*" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Inventory" Version="4.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ConfigureSitecore.cs" />
+    <Content Include="InventoryConstants.cs" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+</Project>
